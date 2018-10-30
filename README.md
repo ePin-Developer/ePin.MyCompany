@@ -1,2 +1,2 @@
 # ePin.MyCompany
-Sample Integration for usage of ePin Authentication
+Sample integration of OpenID Connect for ePin Authentication
