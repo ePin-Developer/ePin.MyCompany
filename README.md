@@ -1,2 +1,2 @@
 # ePin.MyCompany
-Sample Integration of ePin 
+Sample Integration for usage of ePin Authentication
