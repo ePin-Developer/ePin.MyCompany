@@ -1,0 +1,35 @@
+﻿@if (User?.Identity?.IsAuthenticated ?? false)
+{
+    <br />
+    <form method="post" asp-action="signout" asp-controller="Authentication">
+        <div class="container">
+
+            <table align="center" width="100" border="0">
+                <tr>
+                    <td align="center" colspan="2">
+                        <h3> Authentication Data </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2">&nbsp;</td>
+                </tr>
+                @foreach (var claim in Context.User.Claims)
+                {
+                    <tr>
+                        <td> <div class="TrimLabel"> <b>@claim.Type:</b></div> </td>
+                        <td><div class="TrimValue">@claim.Value</div></td>
+                    </tr>
+                }
+                <tr>
+                    <td align="center" colspan="2">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2">
+
+                        <a class="button_cls" href="/signout">Sign out</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+}

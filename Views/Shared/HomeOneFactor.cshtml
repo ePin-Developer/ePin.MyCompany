@@ -1,0 +1,103 @@
+﻿@model MyCompany.Models.MyCompanyModel;
+<br />
+<br />
+
+<div class="container">
+    <form action="signinOneFactor" method="post">
+
+        <table align="center" border="0" style="width:100%">
+            <tr>
+                <td align="center" colspan="3"><a href="/"><img src="/images/MyCompany-Logo.png" /></a></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="3"><hr /></td>
+            </tr>
+            <tr>
+                <td height="80px" align="center" colspan="3">
+                    <a href="/signIn">
+                        <img src="/images/Protect-with-ePin.png" class="protect_with_ePin_button" />
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td width="45"><hr /></td>
+                <td align="center" width="10">OR</td>
+                <td width="45"><hr /> </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="3">
+                    <input asp-for="EmailAddress" id="txtEmailAddress" size="52" placeholder="Email is required... (use demo@epin.me)" />
+                    <br />
+                    <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="center" colspan="3">
+                    <input asp-for="Password" id="txtPassword" size="52" type="password" placeholder="Password is required... (use 1234)" />
+                    <br />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+
+                <td colspan="3" align="center">
+                    <a href="#" class="button_cls" onclick='document.forms[0].submit(); return false;'><b>Sign In</b></a>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="3">
+                    <b> <font color="red"> @ViewData["message"]</font></b>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="3"><a href="#" class="no-underline"><b>Forgot My Password?</b></a></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="center" colspan="3"> Don't have an account?  <a href="http://registration.epin.me/get-registration?signupclientid=4e72c72c94474c1d9d35d9e9e9f91bcc" class="no-underline"><b>Sign Up</b></a></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="center" colspan="3">
+                    <a href="~/files/ePin.MyCompany.zip">Download</a> source code (ASP.NET Core 2.1.2).
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<script>
+    document.getElementById("txtPassword").addEventListener
+        ("keydown", function (e)
+        {
+            if (!e)
+            {
+                window.event.preventDefault();
+            }
+
+            // Enter is pressed
+            if (e.keyCode === 13) { document.forms[0].submit(); }
+        }, false
+        );
+
+    if (document.getElementById("txtEmailAddress").value === "")
+    {
+        document.getElementById("txtEmailAddress").focus();
+    }
+    else
+    {
+        document.getElementById("txtPassword").focus();
+    }
+</script>

@@ -1,0 +1,24 @@
+﻿@model MyCompany.Models.MyCompanyModel;
+<br />
+<br />
+@if (User?.Identity?.IsAuthenticated ?? false)
+{
+    <div class="container">
+        <table align="center" style="width:100%" border="0">
+            <tr>
+                <td align="center"> <a href="/"><img src="/images/MyCompany-Logo.png" /></a></td>
+            </tr>
+            <tr>
+                <td width="30" align="center">&nbsp;</td>
+            </tr>
+            <tr>
+                <td width="30" align="center"><b>Welcome: @Model.EmailAddress</b></td>
+            </tr>
+            <tr>
+                <td width="30" align="center">&nbsp;</td>
+            </tr>
+        </table>
+    </div>
+}
+
+@await Html.PartialAsync("_IsAuthenticated")
